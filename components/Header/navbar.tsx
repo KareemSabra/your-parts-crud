@@ -14,11 +14,11 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="bg-opacity-70 backdrop-blur-md shadow-lg fixed w-full z-50 border-b-2 border-blue-900">
-      <div className="container mx-auto px-4 md:px-6 py-4">
+      <div className=" w-full mx-0 px-8 md:px-16 py-4">
         <div className="flex justify-between items-center">
           <div>
             <Link href="/">
-              <Typography variant="h2">To do list</Typography>
+              <Typography variant="h2">Book library</Typography>
             </Link>
           </div>
           <div className="md:hidden">
