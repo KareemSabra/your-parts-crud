@@ -9,6 +9,7 @@ interface BookListProps {
   books: Book[];
   handleNext: Function;
   handlePrev: Function;
+  handleEdit: Function;
   loading: boolean;
   limit: number;
 }
@@ -19,15 +20,17 @@ const BooksList: React.FC<BookListProps> = ({
   handlePrev,
   loading,
   limit,
+  handleEdit,
 }) => {
   return (
     <div>
-      <Typography variant="h3">Books List</Typography>
       {loading ? (
         <Loading />
       ) : (
         <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {books?.map((book, index) => <BookCard key={index} {...book} />)}
+          {books?.map((book, index) => (
+            <BookCard key={index} {...book} handleEdit={handleEdit} />
+          ))}
         </div>
       )}
       <Pagination

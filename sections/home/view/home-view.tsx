@@ -6,8 +6,11 @@ import Loading from '@/components/loading';
 import React, { use, useEffect, useState } from 'react';
 import { Book } from '@/interfaces';
 import BooksList from '../books-list';
+import { useRouter } from 'next/navigation';
 
 const HomeView: React.FC = () => {
+  const router = useRouter();
+
   const [loading, setLoading] = useState(true);
   const [limit, setLimit] = useState(1);
 
@@ -39,6 +42,11 @@ const HomeView: React.FC = () => {
     setLimit(limit - 1);
   };
 
+  const handleEdit = (id: number) => {
+    console.log('Edit book with id = ', id);
+    router.push(`/edit/${id}`);
+  };
+
   return (
     <BooksList
       books={books}
@@ -46,6 +54,7 @@ const HomeView: React.FC = () => {
       handlePrev={handlePrev}
       loading={loading}
       limit={limit}
+      handleEdit={handleEdit}
     />
   );
 };

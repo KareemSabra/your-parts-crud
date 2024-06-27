@@ -8,14 +8,13 @@ const instance: AxiosInstance = axios.create({
   },
 });
 
-
 // Response interceptor to handle responses
 instance.interceptors.response.use(
   (res: AxiosResponse) => res,
   (error: AxiosError) => {
     // Handle response error
     return Promise.reject(error);
-  }
+  },
 );
 
 export default instance;

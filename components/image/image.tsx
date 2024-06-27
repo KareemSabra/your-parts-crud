@@ -33,7 +33,7 @@ const ImageComponent: React.FC<ImageProps> = ({ url, alt }) => {
       width={200}
       height={200}
       onError={() => setImgSrc('/placeholder-book.svg')}
-      className='rounded-lg'
+      className="rounded-lg"
     />
   );
 };

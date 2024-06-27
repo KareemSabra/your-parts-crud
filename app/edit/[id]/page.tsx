@@ -2,7 +2,7 @@
 import { useParams } from 'next/navigation';
 
 export default function EditPage() {
-  const {id} = useParams();
+  const { id } = useParams();
   console.log(id);
-  return <div>Edit</div>;
+  return <div>Edit book with id = {id}</div>;
 }

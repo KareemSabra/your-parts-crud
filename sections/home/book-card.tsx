@@ -1,9 +1,21 @@
+import Button from '@/components/button/button';
+import IconButton from '@/components/button/icon-button';
 import Image from '@/components/image/image';
 import Typography from '@/components/typography';
 import { Book } from '@/interfaces';
 import React from 'react';
 
-const UserCard: React.FC<Book> = ({ ISBN, title, author, imgURL }) => {
+interface BookCardProps extends Book {
+  handleEdit: Function;
+}
+
+const BookCard: React.FC<BookCardProps> = ({
+  ISBN,
+  title,
+  author,
+  imgURL,
+  handleEdit,
+}) => {
   return (
     <div className="p-2 rounded-lg border-2 border-blue-900 ">
       <div className="flex flex-col justify-between h-full">
@@ -14,11 +26,17 @@ const UserCard: React.FC<Book> = ({ ISBN, title, author, imgURL }) => {
           <Typography variant="h6" className="text-center pb-2">
             {title}
           </Typography>
-          <Typography variant="p">{author}</Typography>
+          <div className="flex justify-between w-full p-0 mt-1">
+            <Typography variant="p">{author}</Typography>
+            <IconButton
+              icon={'mdi:edit-outline'}
+              onClick={() => handleEdit(ISBN)}
+            />
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default UserCard;
+export default BookCard;
