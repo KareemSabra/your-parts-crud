@@ -23,7 +23,6 @@ const HomeView: React.FC = () => {
         page: limit,
       });
       setLoading(false);
-      console.log(response);
       setBooks(response);
     } catch (error) {
       console.log(error);

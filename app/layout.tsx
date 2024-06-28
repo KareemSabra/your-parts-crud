@@ -21,10 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <main className="flex min-h-screen flex-col pt-24 px-12 md:px-24">
-          <Suspense fallback={<Loading />}>{children}</Suspense>
-        </main>
+        <div className="h-screen">
+          <Navbar />
+          <main className="flex flex-col py-24 px-12 md:px-24 h-full">
+            <Suspense fallback={<Loading />}>{children}</Suspense>
+          </main>
+        </div>
       </body>
     </html>
   );
