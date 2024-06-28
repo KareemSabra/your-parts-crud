@@ -25,7 +25,9 @@ const BooksList: React.FC<BookListProps> = ({
   return (
     <div>
       {loading ? (
-        <Loading />
+        <div className="flex w-full justify-center h-96">
+          <Loading />
+        </div>
       ) : (
         <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-4">
           {books?.map((book, index) => (
