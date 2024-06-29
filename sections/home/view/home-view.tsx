@@ -7,6 +7,7 @@ import React, { use, useEffect, useState } from 'react';
 import { Book } from '@/interfaces';
 import BooksList from '../books-list';
 import { useRouter } from 'next/navigation';
+import deleteAPI from '@/api/delete';
 
 const HomeView: React.FC = () => {
   const router = useRouter();
@@ -46,8 +47,19 @@ const HomeView: React.FC = () => {
     router.push(`/edit/${id}`);
   };
 
-  const handleDelete = (id: number) => {
+  const submitDelete = async (id: number) => {
+    try {
+      const res = await deleteAPI({ id });
+      console.log(res);
+      fetchData();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDelete = async (id: number) => {
     console.log('Delete book with id = ', id);
+    await submitDelete(id);
   };
 
   return (
