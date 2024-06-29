@@ -10,6 +10,7 @@ interface BookListProps {
   handleNext: Function;
   handlePrev: Function;
   handleEdit: Function;
+  handleDelete: Function;
   loading: boolean;
   limit: number;
 }
@@ -21,6 +22,7 @@ const BooksList: React.FC<BookListProps> = ({
   loading,
   limit,
   handleEdit,
+  handleDelete,
 }) => {
   return (
     <div className="flex flex-col justify-between h-full">
@@ -31,7 +33,12 @@ const BooksList: React.FC<BookListProps> = ({
       ) : (
         <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-4">
           {books?.map((book, index) => (
-            <BookCard key={index} {...book} handleEdit={handleEdit} />
+            <BookCard
+              key={index}
+              {...book}
+              handleEdit={handleEdit}
+              handleDelete={handleDelete}
+            />
           ))}
         </div>
       )}

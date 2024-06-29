@@ -46,6 +46,10 @@ const HomeView: React.FC = () => {
     router.push(`/edit/${id}`);
   };
 
+  const handleDelete = (id: number) => {
+    console.log('Delete book with id = ', id);
+  };
+
   return (
     <BooksList
       books={books}
@@ -54,6 +58,7 @@ const HomeView: React.FC = () => {
       loading={loading}
       limit={limit}
       handleEdit={handleEdit}
+      handleDelete={handleDelete}
     />
   );
 };

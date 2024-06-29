@@ -7,6 +7,7 @@ import React from 'react';
 
 interface BookCardProps extends Book {
   handleEdit: Function;
+  handleDelete: Function;
   isView?: boolean;
 }
 
@@ -16,6 +17,7 @@ const BookCard: React.FC<BookCardProps> = ({
   author,
   imgURL,
   handleEdit,
+  handleDelete,
   isView = true,
 }) => {
   return (
@@ -36,10 +38,16 @@ const BookCard: React.FC<BookCardProps> = ({
           <div className="flex justify-between w-full p-0 mt-1">
             <Typography variant="p">{author}</Typography>
             {isView && (
-              <IconButton
-                icon={'mdi:edit-outline'}
-                onClick={() => handleEdit(ISBN)}
-              />
+              <div>
+                <IconButton
+                  icon={'mdi:edit-outline'}
+                  onClick={() => handleEdit(ISBN)}
+                />
+                <IconButton
+                  icon={'material-symbols:delete-sharp'}
+                  onClick={() => handleDelete(ISBN)}
+                />
+              </div>
             )}
           </div>
         </div>
