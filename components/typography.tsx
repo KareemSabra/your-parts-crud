@@ -1,7 +1,17 @@
 import React from 'react';
 
 interface TypographyProps {
-  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
+  variant:
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'p'
+    | 'span'
+    | 'error'
+    | 'success';
   children: React.ReactNode;
   color?: string;
   className?: string;
@@ -122,6 +132,35 @@ const Typography: React.FC<TypographyProps> = ({
           {children}
         </span>
       );
+    case 'error':
+      return (
+        <span
+          className={className}
+          style={{
+            ...commonStyles,
+            fontSize: '1rem',
+            lineHeight: 1.7,
+            color: 'red',
+          }}
+        >
+          {children}
+        </span>
+      );
+    case 'success':
+      return (
+        <span
+          className={className}
+          style={{
+            ...commonStyles,
+            fontSize: '1rem',
+            lineHeight: 1.7,
+            color: 'green',
+          }}
+        >
+          {children}
+        </span>
+      );
+
     default:
       return (
         <span
