@@ -6,8 +6,8 @@ import { Book } from '@/interfaces';
 import React from 'react';
 
 interface BookCardProps extends Book {
-  handleEdit: Function;
-  handleDelete: Function;
+  handleEdit?: Function;
+  handleDelete?: Function;
   isView?: boolean;
 }
 

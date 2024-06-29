@@ -54,7 +54,12 @@ const CreateEditBook: React.FC<CreateEditBookProps> = ({ book }) => {
         submitBook={submitBook}
       />
       <div className="mb-4 md:min-w-80">
-        <BookCard {...bookState} handleEdit={() => {}} isView={false} />
+        <BookCard
+          {...bookState}
+          handleEdit={() => {}}
+          handleDelete={() => {}}
+          isView={false}
+        />
       </div>
     </div>
   );
