@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="bg-opacity-70 backdrop-blur-md shadow-lg fixed w-full  border-b-2 border-blue-900">
-      <div className=" w-full mx-0 px-8 md:px-16 py-4">
+      <div className=" w-full mx-0 px-8 md:px-16 py-4 bg-black">
         <div className="flex justify-between items-center">
           <div>
             <Link href="/">
@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
         {isOpen && (
-          <div className="md:hidden mt-2">
+          <div className="md:hidden mt-2 bg-inherit">
             {Paths.map((path, index) => (
               <Link key={index} href={path.path}>
                 <Typography variant="h6" className="block py-2">
