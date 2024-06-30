@@ -27,7 +27,6 @@ const BooksList: React.FC<BookListProps> = ({
 }) => {
   return (
     <div className="flex flex-col justify-between h-full">
-      <Modal />
       {loading ? (
         <div className="flex-col w-full justify-center h-full">
           <Loading />
