@@ -7,6 +7,7 @@ import BookCard from './book-card';
 import Modal from '@/components/modal/modal';
 import Input from '@/components/input/input';
 import Button from '@/components/button/button';
+import NotFoundComponent from '../notfound/view/not-found';
 
 interface BookListProps {
   books: Book[];
@@ -77,16 +78,20 @@ const BooksList: React.FC<BookListProps> = ({
               <Button onClick={() => handleFilters()} text={'Search'} />
             </div>
           </div>
-          <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {books?.map((book, index) => (
-              <BookCard
-                key={index}
-                {...book}
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}
-              />
-            ))}
-          </div>
+          {books && books.length > 0 ? (
+            <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {books?.map((book, index) => (
+                <BookCard
+                  key={index}
+                  {...book}
+                  handleEdit={handleEdit}
+                  handleDelete={handleDelete}
+                />
+              ))}
+            </div>
+          ) : (
+            <NotFoundComponent />
+          )}
         </>
       )}
       <Pagination

@@ -38,7 +38,7 @@ const HomeView: React.FC = () => {
       });
       setLoading(false);
       setBooks(response.results);
-      setCount(response.total);
+      setCount(response.total || 0);
     } catch (error) {
       console.log(error);
     }
@@ -51,7 +51,7 @@ const HomeView: React.FC = () => {
   const handleFilters = () => {
     setLimit(1);
     fetchData();
-  }
+  };
   const handleNext = () => {
     setLimit(limit + 1);
   };
