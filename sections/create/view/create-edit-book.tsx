@@ -55,7 +55,7 @@ const CreateEditBook: React.FC<CreateEditBookProps> = ({ book }) => {
   const submitBook = book?.ISBN ? handleEdit : handleCreate;
 
   return (
-    <div className="flex flex-col-reverse md:flex-row justify-around">
+    <div className="flex flex-col-reverse lg:flex-row justify-around">
       <AddEditBookForm
         book={bookState}
         error={error}

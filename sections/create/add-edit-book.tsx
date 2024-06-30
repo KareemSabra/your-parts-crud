@@ -31,11 +31,11 @@ const InnerForm: React.FC<OtherProps & FormikProps<Book>> = (props) => {
   return (
     <Form onSubmit={handleSubmit}>
       {/* <h1>{message}</h1> */}
-      <div className="p-4 rounded-lg border-2 border-blue-900">
+      <div className="p-4 rounded-lg border-2 border-blue-900 md:min-w-[400px]">
         <Input
           type="text"
           name="title"
-          label="Title"
+          label="Title *"
           onChange={handleChange}
           value={values.title}
           error={touched.title && errors.title ? errors.title : ''}
@@ -45,7 +45,7 @@ const InnerForm: React.FC<OtherProps & FormikProps<Book>> = (props) => {
         <Input
           type="text"
           name="author"
-          label="Author"
+          label="Author *"
           onChange={handleChange}
           value={values.author}
           error={touched.author && errors.author ? errors.author : ''}
@@ -109,14 +109,12 @@ const MyForm = withFormik<MyFormProps, Book>({
   validate: (values) => {
     const errors: FormikErrors<Book> = {};
     if (!values.author) {
-      errors.author = 'Required';
+      errors.author = 'Book author is required.';
     }
     if (!values.title) {
-      errors.title = 'Required';
+      errors.title = 'Book title is required.';
     }
-    if (!values.imgURL) {
-      errors.imgURL = 'Required';
-    }
+
     return errors;
   },
 
