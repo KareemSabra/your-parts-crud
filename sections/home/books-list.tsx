@@ -16,6 +16,7 @@ interface BookListProps {
   handleDelete: Function;
   loading: boolean;
   limit: number;
+  count: number;
   filters: {
     title: string;
     author: string;
@@ -30,6 +31,7 @@ const BooksList: React.FC<BookListProps> = ({
   handlePrev,
   loading,
   limit,
+  count,
   handleEdit,
   handleDelete,
   filters,
@@ -91,6 +93,7 @@ const BooksList: React.FC<BookListProps> = ({
         handleNext={handleNext}
         handlePrev={handlePrev}
         limit={limit}
+        count={count}
       />
     </div>
   );

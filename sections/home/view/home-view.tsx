@@ -26,6 +26,8 @@ const HomeView: React.FC = () => {
 
   const [books, setBooks] = useState<Book[]>([]);
 
+  const [count, setCount] = useState(0);
+
   const fetchData = async () => {
     try {
       setLoading(true);
@@ -35,7 +37,8 @@ const HomeView: React.FC = () => {
         ...(filters.title && { title: filters.title }),
       });
       setLoading(false);
-      setBooks(response);
+      setBooks(response.results);
+      setCount(response.total);
     } catch (error) {
       console.log(error);
     }
@@ -88,6 +91,7 @@ const HomeView: React.FC = () => {
         handlePrev={handlePrev}
         loading={loading}
         limit={limit}
+        count={count}
         handleEdit={handleEdit}
         handleDelete={handleDelete}
         filters={filters}
