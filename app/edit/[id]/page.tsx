@@ -20,7 +20,7 @@ export default function EditPage() {
     try {
       const response = await getAllData({ id });
       console.log(response);
-      setBook(response[0]);
+      setBook(response.results[0]);
       setLoading(false);
     } catch (error) {
       console.error('Error fetching book:', error);
