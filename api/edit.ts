@@ -2,36 +2,32 @@ import axios from '@/axiosConfig';
 import { Book } from '@/interfaces';
 
 interface ApiResponse {
-  data: Book[];
   status: number;
 }
 
 interface Parameters {
-  page?: number;
-  id?: number;
-  author?: string;
-  title?: string;
+  data?: Book;
 }
 
-const getAllData = async (params?: Parameters): Promise<Book[] | any> => {
+const EditBook = async (params?: Parameters): Promise<Book[] | any> => {
   const options = {
     baseURL: process.env.REACT_APP_API_URL,
-    url: `/`,
-    method: 'GET',
-    params: {
-      ...params,
+    url: `/update`,
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
     },
+    data: JSON.stringify(params?.data),
   };
   try {
     const response: ApiResponse = await axios(options);
     console.log(response);
     if (response.status === 200) {
-      return response.data;
+      return response;
     }
   } catch (error) {
-    console.log(error);
-    return error;
+    throw error;
   }
 };
 
-export default getAllData;
+export default EditBook;

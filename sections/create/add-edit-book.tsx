@@ -70,7 +70,7 @@ const InnerForm: React.FC<OtherProps & FormikProps<Book>> = (props) => {
               !!errors.title ||
               !!errors.imgURL
             }
-            text="Add Book"
+            text={values.ISBN ? 'Edit Book' : 'Add Book'}
             isSubmitting={isSubmitting}
           />
         </div>

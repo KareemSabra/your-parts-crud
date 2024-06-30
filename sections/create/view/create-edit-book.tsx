@@ -4,6 +4,7 @@ import AddEditBookForm from '../add-edit-book';
 import { Book } from '@/interfaces';
 import BookCard from '@/sections/home/book-card';
 import CreateBook from '@/api/create';
+import EditBook from '@/api/edit';
 
 interface CreateEditBookProps {
   book?: Book;
@@ -21,8 +22,20 @@ const CreateEditBook: React.FC<CreateEditBookProps> = ({ book }) => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  const handleEdit = (id: number) => {
-    console.log('Edit book with id = ', id);
+  const handleEdit = async () => {
+    try {
+      setError('');
+      setSuccess('');
+      const res = await EditBook({ data: bookState });
+      console.log(res);
+      setSuccess('Book updated successfully Redirecting to home page');
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 2000);
+    } catch (error) {
+      console.log(error);
+      setError(error?.response?.data?.message || 'Error Editing book');
+    }
   };
 
   const handleCreate = async () => {
