@@ -26,7 +26,7 @@ const Input: React.FC<InputProps> = ({
   onBlur,
   onChange,
 }) => {
-  const inputClassNames = `rounded-md  p-2 w-full border-2 ${
+  const inputClassNames = `rounded-md  p-2 w-full border-2 dark:bg-slate-950 bg-gray-200 ${
     error
       ? 'border-red-500 focus:border-red-500'
       : 'border-blue-900 focus:border-blue-900'

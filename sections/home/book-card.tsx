@@ -21,7 +21,7 @@ const BookCard: React.FC<BookCardProps> = ({
   isView = true,
 }) => {
   return (
-    <div className="p-2 rounded-lg border-2 border-blue-900 ">
+    <div className="p-2 rounded-lg border-2 border-blue-900 dark:bg-slate-950 bg-gray-200">
       <div className="flex flex-col justify-between h-full">
         {!isView && (
           <div className="flex justify-center w-full p-0 mt-1">
