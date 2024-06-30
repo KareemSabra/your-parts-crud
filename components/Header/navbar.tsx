@@ -67,11 +67,13 @@ const Navbar: React.FC = () => {
         {isOpen && (
           <div className="md:hidden mt-2 bg-inherit">
             {Paths.map((path, index) => (
-              <Link key={index} href={path.path}>
-                <Typography variant="h6" className="block py-2">
-                  {path.label}
-                </Typography>
-              </Link>
+              <div key={index} className="mt-3">
+                <Link key={index} href={path.path}>
+                  <Typography variant="h6" className="block py-2">
+                    {path.label}
+                  </Typography>
+                </Link>
+              </div>
             ))}
           </div>
         )}

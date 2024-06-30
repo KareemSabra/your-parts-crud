@@ -2,11 +2,10 @@
 
 Welcome to the Book Management CRUD (Create, Read, Update, Delete) application built with TypeScript and Next.js
 
-
 ## Live Demo
+
 The app is hosted on Vercel and you can check it out following this link
 [Book Management Demo](https://your-parts-crud.vercel.app/)
-
 
 ## Getting Started
 
@@ -29,6 +28,7 @@ or use npm (not recommended)
 ```bash
 npm install
 ```
+
 ```bash
 npm run dev
 ```
