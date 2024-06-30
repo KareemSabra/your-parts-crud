@@ -8,6 +8,7 @@ interface InputProps {
   type?: string;
   name?: string;
   placeholder?: string;
+  testID?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
@@ -19,6 +20,7 @@ const Input: React.FC<InputProps> = ({
   error,
   type,
   placeholder,
+  testID,
   onBlur,
   onChange,
 }) => {
@@ -34,6 +36,7 @@ const Input: React.FC<InputProps> = ({
         <Typography variant="h6">{label}</Typography>
       </label>
       <input
+        data-testid={testID}
         className={inputClassNames}
         placeholder={placeholder}
         type={type}
