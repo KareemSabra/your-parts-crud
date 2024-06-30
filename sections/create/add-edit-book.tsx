@@ -36,6 +36,7 @@ const InnerForm: React.FC<OtherProps & FormikProps<Book>> = (props) => {
           type="text"
           name="title"
           label="Title *"
+          testID="title-input"
           onChange={handleChange}
           value={values.title}
           error={touched.title && errors.title ? errors.title : ''}
@@ -46,6 +47,7 @@ const InnerForm: React.FC<OtherProps & FormikProps<Book>> = (props) => {
           type="text"
           name="author"
           label="Author *"
+          testID="author-input"
           onChange={handleChange}
           value={values.author}
           error={touched.author && errors.author ? errors.author : ''}
@@ -56,6 +58,7 @@ const InnerForm: React.FC<OtherProps & FormikProps<Book>> = (props) => {
           type="text"
           name="imgURL"
           label="Image URL"
+          testID="imgURL-input"
           onChange={handleChange}
           value={values.imgURL}
           error={touched.imgURL && errors.imgURL ? errors.imgURL : ''}
@@ -70,6 +73,7 @@ const InnerForm: React.FC<OtherProps & FormikProps<Book>> = (props) => {
               !!errors.title ||
               !!errors.imgURL
             }
+            testid='submit-button'
             text={values.ISBN ? 'Edit Book' : 'Add Book'}
             isSubmitting={isSubmitting}
           />
@@ -130,7 +134,7 @@ interface AddEditBookProps {
   book?: Book;
   error?: string;
   success?: string;
-  setBookState?: Function;
+  setBookState: Function;
   submitBook?: Function;
 }
 
