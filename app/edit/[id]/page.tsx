@@ -4,6 +4,7 @@ import getAllData from '@/api/list';
 import Loading from '@/components/loading';
 import { Book } from '@/interfaces';
 import CreateEditBook from '@/sections/create/view/create-edit-book';
+import NotFoundComponent from '@/sections/notfound/view/not-found';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -14,7 +15,6 @@ export default function EditPage() {
   const params = useParams();
   const id = params?.id?.toString() || '';
 
-
   const fetchBookById = async (id: number) => {
     try {
       const response = await getAllData({ id });
@@ -23,6 +23,7 @@ export default function EditPage() {
     } catch (error) {
       console.error('Error fetching book:', error);
       setError(error?.response?.data?.message || 'Error fetching book');
+      setLoading(false);
     }
   };
 
@@ -36,5 +37,11 @@ export default function EditPage() {
     }
   }, [id]);
 
-  return loading ? <Loading /> : <CreateEditBook book={book} />;
+  return loading ? (
+    <Loading />
+  ) : book?.ISBN ? (
+    <CreateEditBook book={book} />
+  ) : (
+    <NotFoundComponent />
+  );
 }
