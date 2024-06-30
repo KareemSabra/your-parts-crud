@@ -3,12 +3,13 @@ import Typography from '../typography';
 
 interface InputProps {
   value: string;
-  label: string;
+  label?: string;
   error?: string;
   type?: string;
   name?: string;
+  placeholder?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -17,6 +18,7 @@ const Input: React.FC<InputProps> = ({
   value,
   error,
   type,
+  placeholder,
   onBlur,
   onChange,
 }) => {
@@ -33,6 +35,7 @@ const Input: React.FC<InputProps> = ({
       </label>
       <input
         className={inputClassNames}
+        placeholder={placeholder}
         type={type}
         value={value}
         onChange={onChange}

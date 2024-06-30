@@ -16,6 +16,11 @@ const HomeView: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [limit, setLimit] = useState(1);
 
+  const [filters, setFilters] = useState({
+    author: '',
+    title: '',
+  });
+
   const [openDeleteConfirm, setOpenDeleteConfirm] = useState(false);
   const [actionID, setActionID] = useState<number | null>(null);
 
@@ -26,6 +31,8 @@ const HomeView: React.FC = () => {
       setLoading(true);
       const response = await getAllData({
         page: limit,
+        ...(filters.author && { author: filters.author }),
+        ...(filters.title && { title: filters.title }),
       });
       setLoading(false);
       setBooks(response);
@@ -38,6 +45,10 @@ const HomeView: React.FC = () => {
     fetchData();
   }, [limit]);
 
+  const handleFilters = () => {
+    setLimit(1);
+    fetchData();
+  }
   const handleNext = () => {
     setLimit(limit + 1);
   };
@@ -79,6 +90,9 @@ const HomeView: React.FC = () => {
         limit={limit}
         handleEdit={handleEdit}
         handleDelete={handleDelete}
+        filters={filters}
+        setFilters={setFilters}
+        handleFilters={handleFilters}
       />
       <Modal
         openModal={openDeleteConfirm}
