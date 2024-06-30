@@ -14,12 +14,10 @@ export default function EditPage() {
   const params = useParams();
   const id = params?.id?.toString() || '';
 
-  console.log(id);
 
   const fetchBookById = async (id: number) => {
     try {
       const response = await getAllData({ id });
-      console.log(response);
       setBook(response.results[0]);
       setLoading(false);
     } catch (error) {

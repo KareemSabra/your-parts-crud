@@ -23,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       className="bg-blue-900 px-4 py-2 rounded-md hover:bg-blue-400 disabled:hover:bg-blue-900 disabled:cursor-not-allowed"
       onClick={onClick}
-      disabled={disabled}
+      disabled={disabled || isSubmitting}
       type={type}
       data-testid={testid}
     >

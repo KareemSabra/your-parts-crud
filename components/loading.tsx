@@ -9,7 +9,7 @@ interface LoadingProps {
 const Loading: React.FC<LoadingProps> = ({ overrideTextSize }) => {
   return (
     <div className="flex w-full justify-center items-center h-full">
-      <div>
+      <div data-testid={"loader"}>
         <Icon
           icon="ei:spinner-3"
           className={`${overrideTextSize ? overrideTextSize : 'text-6xl'} animate-spin`}

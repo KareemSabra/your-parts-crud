@@ -21,7 +21,6 @@ const CreateBook = async (params?: Parameters): Promise<Book[] | any> => {
   };
   try {
     const response: ApiResponse = await axios(options);
-    console.log(response);
     if (response.status === 200) {
       return response;
     }

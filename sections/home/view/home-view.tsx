@@ -61,14 +61,12 @@ const HomeView: React.FC = () => {
   };
 
   const handleEdit = (id: number) => {
-    console.log('Edit book with id = ', id);
     router.push(`/edit/${id}`);
   };
 
   const submitDelete = async (id: number) => {
     try {
       const res = await deleteAPI({ id });
-      console.log(res);
       fetchData();
       setOpenDeleteConfirm(false);
       setActionID(0);
@@ -78,7 +76,6 @@ const HomeView: React.FC = () => {
   };
 
   const handleDelete = async (id: number) => {
-    console.log('Delete book with id = ', id);
     setActionID(id);
     setOpenDeleteConfirm(true);
   };

@@ -27,7 +27,6 @@ const CreateEditBook: React.FC<CreateEditBookProps> = ({ book }) => {
       setError('');
       setSuccess('');
       const res = await EditBook({ data: bookState });
-      console.log(res);
       setSuccess('Book updated successfully Redirecting to home page');
       setTimeout(() => {
         window.location.href = '/';
@@ -39,12 +38,10 @@ const CreateEditBook: React.FC<CreateEditBookProps> = ({ book }) => {
   };
 
   const handleCreate = async () => {
-    console.log('Create book', bookState);
     try {
       setError('');
       setSuccess('');
       const res = await CreateBook({ data: bookState });
-      console.log(res);
       setSuccess('Book created successfully Redirecting to home page');
       setTimeout(() => {
         window.location.href = '/';

@@ -48,7 +48,6 @@ describe('Pagination component', () => {
     const nextButton = (await screen.findByTestId(
       'next-button',
     )) as HTMLButtonElement;
-    console.log(nextButton);
     expect(nextButton).toHaveProperty('disabled', true);
   });
 
@@ -64,7 +63,6 @@ describe('Pagination component', () => {
     const nextButton = (await screen.findByTestId(
       'prev-button',
     )) as HTMLButtonElement;
-    console.log(nextButton);
     expect(nextButton).toHaveProperty('disabled', true);
   });
 
