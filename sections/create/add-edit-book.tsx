@@ -71,7 +71,8 @@ const InnerForm: React.FC<OtherProps & FormikProps<Book>> = (props) => {
               isSubmitting ||
               !!errors.author ||
               !!errors.title ||
-              !!errors.imgURL
+              !!errors.imgURL ||
+              props?.success
             }
             testid="submit-button"
             text={values.ISBN ? 'Edit Book' : 'Add Book'}

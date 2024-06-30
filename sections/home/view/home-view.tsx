@@ -67,7 +67,11 @@ const HomeView: React.FC = () => {
   const submitDelete = async (id: number) => {
     try {
       const res = await deleteAPI({ id });
-      fetchData();
+      if (books.length === 1) {
+        setLimit(limit - 1);
+      } else {
+        fetchData();
+      }
       setOpenDeleteConfirm(false);
       setActionID(0);
     } catch (error) {
