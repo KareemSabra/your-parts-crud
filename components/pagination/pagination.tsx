@@ -1,4 +1,5 @@
 import Button from '../button/button';
+import Typography from '../typography';
 
 interface PaginationProps {
   handleNext: Function;
@@ -17,13 +18,18 @@ const Pagination: React.FC<PaginationProps> = ({
   const totalPages = Math.ceil(count / 8);
 
   return (
-    <div className="flex justify-center mt-4">
+    <div className="flex justify-center mt-4 mb-2">
       <div className="mx-2">
         <Button
           onClick={() => handlePrev()}
           text={'Prev'}
           disabled={limit < 2}
         />
+      </div>
+      <div className="mx-2 flex align-middle pt-2">
+        <Typography variant="p">
+          {limit} / {totalPages}
+        </Typography>
       </div>
       <div className="mx-2">
         <Button
