@@ -57,6 +57,7 @@ const HomeView: React.FC = () => {
       console.log(res);
       fetchData();
       setOpenDeleteConfirm(false);
+      setActionID(0);
     } catch (error) {
       console.log(error);
     }
@@ -64,8 +65,8 @@ const HomeView: React.FC = () => {
 
   const handleDelete = async (id: number) => {
     console.log('Delete book with id = ', id);
-    setOpenDeleteConfirm(true);
     setActionID(id);
+    setOpenDeleteConfirm(true);
   };
 
   return (
@@ -82,7 +83,11 @@ const HomeView: React.FC = () => {
       <Modal
         openModal={openDeleteConfirm}
         modalTitle="Delete Book"
-        modalContent="Are you sure you want to delete this book?"
+        modalContent={`Are you sure you want to delete ${
+          books?.length > 0
+            ? books.find((book) => book.ISBN === actionID)?.title
+            : 'this book'
+        }?`}
         submitText="Delete"
         actionID={actionID}
         handleSubmit={(id: number) => {
