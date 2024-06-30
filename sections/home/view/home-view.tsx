@@ -8,12 +8,16 @@ import { Book } from '@/interfaces';
 import BooksList from '../books-list';
 import { useRouter } from 'next/navigation';
 import deleteAPI from '@/api/delete';
+import Modal from '@/components/modal/modal';
 
 const HomeView: React.FC = () => {
   const router = useRouter();
 
   const [loading, setLoading] = useState(true);
   const [limit, setLimit] = useState(1);
+
+  const [openDeleteConfirm, setOpenDeleteConfirm] = useState(false);
+  const [actionID, setActionID] = useState<number | null>(null);
 
   const [books, setBooks] = useState<Book[]>([]);
 
@@ -52,6 +56,7 @@ const HomeView: React.FC = () => {
       const res = await deleteAPI({ id });
       console.log(res);
       fetchData();
+      setOpenDeleteConfirm(false);
     } catch (error) {
       console.log(error);
     }
@@ -59,19 +64,33 @@ const HomeView: React.FC = () => {
 
   const handleDelete = async (id: number) => {
     console.log('Delete book with id = ', id);
-    await submitDelete(id);
+    setOpenDeleteConfirm(true);
+    setActionID(id);
   };
 
   return (
-    <BooksList
-      books={books}
-      handleNext={handleNext}
-      handlePrev={handlePrev}
-      loading={loading}
-      limit={limit}
-      handleEdit={handleEdit}
-      handleDelete={handleDelete}
-    />
+    <>
+      <BooksList
+        books={books}
+        handleNext={handleNext}
+        handlePrev={handlePrev}
+        loading={loading}
+        limit={limit}
+        handleEdit={handleEdit}
+        handleDelete={handleDelete}
+      />
+      <Modal
+        openModal={openDeleteConfirm}
+        modalTitle="Delete Book"
+        modalContent="Are you sure you want to delete this book?"
+        submitText="Delete"
+        actionID={actionID}
+        handleSubmit={(id: number) => {
+          submitDelete(id);
+        }}
+        handleCancel={() => setOpenDeleteConfirm(false)}
+      />
+    </>
   );
 };
 

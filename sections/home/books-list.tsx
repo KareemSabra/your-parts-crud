@@ -4,6 +4,7 @@ import Typography from '@/components/typography';
 import { Book } from '@/interfaces';
 import React from 'react';
 import BookCard from './book-card';
+import Modal from '@/components/modal/modal';
 
 interface BookListProps {
   books: Book[];
@@ -26,6 +27,7 @@ const BooksList: React.FC<BookListProps> = ({
 }) => {
   return (
     <div className="flex flex-col justify-between h-full">
+      <Modal />
       {loading ? (
         <div className="flex-col w-full justify-center h-full">
           <Loading />
