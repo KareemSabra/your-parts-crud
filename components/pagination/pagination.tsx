@@ -1,5 +1,5 @@
 import Button from '../button/button';
-import Typography from '../typography';
+import Typography from '../typography/typography';
 
 interface PaginationProps {
   handleNext: Function;

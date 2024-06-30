@@ -1,4 +1,4 @@
-import Typography from '@/components/typography';
+import Typography from '@/components/typography/typography';
 import React from 'react';
 
 const TypographyDemo: React.FC = () => {

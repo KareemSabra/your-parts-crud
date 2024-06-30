@@ -1,7 +1,7 @@
 import Button from '@/components/button/button';
 import IconButton from '@/components/button/icon-button';
 import Image from '@/components/image/image';
-import Typography from '@/components/typography';
+import Typography from '@/components/typography/typography';
 import { Book } from '@/interfaces';
 import React from 'react';
 
@@ -42,10 +42,12 @@ const BookCard: React.FC<BookCardProps> = ({
                 <IconButton
                   icon={'mdi:edit-outline'}
                   onClick={() => handleEdit(ISBN)}
+                  testID="edit-button"
                 />
                 <IconButton
                   icon={'material-symbols:delete-sharp'}
                   onClick={() => handleDelete(ISBN)}
+                  testID="delete-button"
                 />
               </div>
             )}

@@ -1,5 +1,5 @@
 import Button from '@/components/button/button';
-import Typography from '@/components/typography';
+import Typography from '@/components/typography/typography';
 
 const NotFoundComponent: React.FC = () => {
   return (

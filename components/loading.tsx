@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from '@/components/typography';
+import Typography from '@/components/typography/typography';
 import { Icon } from '@iconify/react/dist/iconify.js';
 
 interface LoadingProps {

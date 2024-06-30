@@ -1,6 +1,6 @@
 import Loading from '@/components/loading';
 import Pagination from '@/components/pagination/pagination';
-import Typography from '@/components/typography';
+import Typography from '@/components/typography/typography';
 import { Book } from '@/interfaces';
 import React from 'react';
 import BookCard from './book-card';
@@ -41,7 +41,7 @@ const BooksList: React.FC<BookListProps> = ({
 }) => {
   return (
     <div className="flex flex-col  h-full">
-      <div className="flex flex-col sm:flex-row justify-start w-full p-0 mt-1 mb-2">
+      <div className="flex flex-col sm:flex-row justify-start w-full p-0 mt-1 mb-2 ">
         <div className="mr-2">
           <Input
             placeholder="Search by title"
@@ -70,7 +70,7 @@ const BooksList: React.FC<BookListProps> = ({
             disabled={loading}
           />
         </div>
-        <div className="mr-2 pt-1">
+        <div className="mr-2 pt-1 flex justify-center">
           <Button onClick={() => handleFilters()} text={'Search'} />
         </div>
       </div>

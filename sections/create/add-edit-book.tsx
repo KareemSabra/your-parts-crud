@@ -3,7 +3,7 @@ import Button from '@/components/button/button';
 import Input from '@/components/input/input';
 import { Book } from '@/interfaces';
 import { Form, FormikErrors, FormikProps, withFormik } from 'formik';
-import Typography from '@/components/typography';
+import Typography from '@/components/typography/typography';
 
 interface OtherProps {
   message: string;
@@ -73,7 +73,7 @@ const InnerForm: React.FC<OtherProps & FormikProps<Book>> = (props) => {
               !!errors.title ||
               !!errors.imgURL
             }
-            testid='submit-button'
+            testid="submit-button"
             text={values.ISBN ? 'Edit Book' : 'Add Book'}
             isSubmitting={isSubmitting}
           />

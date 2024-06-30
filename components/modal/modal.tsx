@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import Typography from '../typography';
+import Typography from '../typography/typography';
 import Button from '../button/button';
 
 interface ModalProps {

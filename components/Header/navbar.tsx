@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Paths } from '@/routes/paths';
-import Typography from '../typography';
+import Typography from '../typography/typography';
 import ThemeSwitch from '../ThemeSwitcher';
 
 const Navbar: React.FC = () => {
