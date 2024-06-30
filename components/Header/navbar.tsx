@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Paths } from '@/routes/paths';
 import Typography from '../typography';
+import ThemeSwitch from '../ThemeSwitcher';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,13 +15,17 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="bg-opacity-70 backdrop-blur-md shadow-lg fixed w-full  border-b-2 border-blue-900">
-      <div className=" w-full mx-0 px-8 md:px-16 py-4 dark:bg-black bg-white">
-        <div className="flex justify-between items-center">
-          <div>
+      <div className=" w-full mx-0 px-8 md:px-16 py-4 dark:bg-slate-800 bg-white">
+        <div className="flex flex-row justify-between items-center">
+          <div className="flex flex-row">
             <Link href="/">
               <Typography variant="h2">Book library</Typography>
             </Link>
+            <div className="pt-2 ml-4">
+              <ThemeSwitch />
+            </div>
           </div>
+
           <div className="md:hidden">
             <button
               onClick={toggleMenu}

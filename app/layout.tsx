@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 
 import { Suspense } from 'react';
+import { Providers } from './provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,12 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="h-screen">
-          <Navbar />
-          <main className="flex flex-col py-24 px-12 md:px-24 h-full">
-            <Suspense fallback={<Loading />}>{children}</Suspense>
-          </main>
-        </div>
+        <Providers>
+          <div className="h-screen">
+            <Navbar />
+            <main className="flex flex-col py-24 px-12 md:px-24 h-full">
+              <Suspense fallback={<Loading />}>{children}</Suspense>
+            </main>
+          </div>
+        </Providers>
       </body>
     </html>
   );
