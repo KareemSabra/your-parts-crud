@@ -6,6 +6,7 @@ interface ButtonProps {
   text: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   disabled?: boolean;
+  testid?: string;
   type?: 'button' | 'submit' | 'reset';
   isSubmitting?: boolean;
 }
@@ -14,6 +15,7 @@ const Button: React.FC<ButtonProps> = ({
   text,
   onClick,
   disabled,
+  testid,
   type = 'button',
   isSubmitting = false,
 }) => {
@@ -23,6 +25,7 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
       type={type}
+      data-testid={testid}
     >
       {isSubmitting ? (
         <Loading overrideTextSize={'text-3xl'} />

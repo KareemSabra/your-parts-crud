@@ -12,7 +12,8 @@ const NotFoundComponent: React.FC = () => {
           Sorry, the page or book you're looking for doesn't exist.
         </Typography>
         <Typography variant="h4">
-          Go back to the home page to find what you're looking for or change the search criteria.
+          Go back to the home page to find what you're looking for or change the
+          search criteria.
         </Typography>
         <div className="mt-4">
           <Button text="Go home" onClick={() => window.location.replace('/')} />

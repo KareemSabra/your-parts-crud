@@ -26,6 +26,7 @@ const Pagination: React.FC<PaginationProps> = ({
               onClick={() => handlePrev()}
               text={'Prev'}
               disabled={limit < 2}
+              testid="prev-button"
             />
           </div>
           <div className="m-2 flex align-middle pt-2">
@@ -38,6 +39,7 @@ const Pagination: React.FC<PaginationProps> = ({
               onClick={() => handleNext()}
               text={'Next'}
               disabled={limit >= totalPages}
+              testid="next-button"
             />
           </div>
         </div>
