@@ -27,7 +27,7 @@ const Modal: React.FC<ModalProps> = ({
     <div>
       {openModal && (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center">
-          <div className="max-w-[460px] min-w-[460px] bg-black shadow-lg py-2 rounded-lg  border-blue-900 border-2">
+          <div className="max-w-[460px] md:min-w-[460px] bg-black shadow-lg py-2 rounded-lg  border-blue-900 border-2">
             <div className="  py-3 px-4 mb-2">
               <Typography variant="h3">{modalTitle}</Typography>
             </div>
