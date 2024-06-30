@@ -41,6 +41,20 @@ To edit the app port simply edit the 3060 port in package.json file in the next 
  "dev": "next dev -p 3060",
 ```
 
+## ESLint and formatting
+
+prettier and other ESLint rules were used to format the code using prettier run
+
+```bash
+ bun run format
+```
+
+to lint code run
+```bash
+ bun run lint
+```
+
+
 ## Testing
 To run unittests simply run the command 
 
