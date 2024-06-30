@@ -24,6 +24,15 @@ Then run the app locally using bun.sh
 bun run dev
 ```
 
+or use npm (not recommended)
+
+```bash
+npm install
+```
+```bash
+npm run dev
+```
+
 Open [http://localhost:3060](http://localhost:3060) with your browser to see the result.
 
 To edit the app port simply edit the 3060 port in package.json file in the next file
