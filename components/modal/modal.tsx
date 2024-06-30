@@ -50,7 +50,7 @@ const Modal: React.FC<ModalProps> = ({
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center">
           <div
             ref={modalRef}
-            className="max-w-[460px] md:min-w-[460px] dark:bg-slate-800 bg-white shadow-lg py-2 rounded-lg border-blue-900 border-2"
+            className="max-w-[460px] md:min-w-[460px] dark:bg-slate-950 bg-gray-200 shadow-lg py-2 rounded-lg border-blue-900 border-2"
           >
             <div className="py-3 px-4 mb-2">
               <Typography variant="h3">{modalTitle}</Typography>

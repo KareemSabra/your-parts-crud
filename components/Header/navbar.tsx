@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="bg-opacity-70 backdrop-blur-md shadow-lg fixed w-full  border-b-2 border-blue-900">
-      <div className=" w-full mx-0 px-8 md:px-16 py-4 dark:bg-slate-800 bg-white">
+      <div className=" w-full mx-0 px-8 md:px-16 py-4 dark:bg-slate-950 bg-gray-200">
         <div className="flex flex-row justify-between items-center">
           <div className="flex flex-row">
             <Link href="/">
