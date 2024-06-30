@@ -31,7 +31,7 @@ const InnerForm: React.FC<OtherProps & FormikProps<Book>> = (props) => {
   return (
     <Form onSubmit={handleSubmit}>
       {/* <h1>{message}</h1> */}
-      <div className="p-4 rounded-lg border-2 border-blue-900 md:min-w-[400px] dark:bg-slate-950 bg-gray-200">
+      <div className="p-4 rounded-lg border-2 border-blue-900 md:min-w-[450px] dark:bg-slate-950 bg-gray-200">
         <Input
           type="text"
           name="title"
