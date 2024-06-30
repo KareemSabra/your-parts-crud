@@ -40,44 +40,46 @@ const BooksList: React.FC<BookListProps> = ({
   handleFilters,
 }) => {
   return (
-    <div className="flex flex-col justify-between h-full">
+    <div className="flex flex-col  h-full">
+      <div className="flex flex-col sm:flex-row justify-start w-full p-0 mt-1 mb-2">
+        <div className="mr-2">
+          <Input
+            placeholder="Search by title"
+            type="text"
+            onChange={(e) => {
+              setFilters({
+                ...filters,
+                title: e.target.value,
+              });
+            }}
+            value={filters.title}
+            disabled={loading}
+          />
+        </div>
+        <div className="mr-2">
+          <Input
+            placeholder="Search by author"
+            type="text"
+            onChange={(e) => {
+              setFilters({
+                ...filters,
+                author: e.target.value,
+              });
+            }}
+            value={filters.author}
+            disabled={loading}
+          />
+        </div>
+        <div className="mr-2 pt-1">
+          <Button onClick={() => handleFilters()} text={'Search'} />
+        </div>
+      </div>
       {loading ? (
         <div className="flex-col w-full justify-center h-full">
           <Loading />
         </div>
       ) : (
         <>
-          <div className="flex flex-col sm:flex-row justify-start w-full p-0 mt-1 mb-2">
-            <div className="mr-2">
-              <Input
-                placeholder="Search by title"
-                type="text"
-                onChange={(e) => {
-                  setFilters({
-                    ...filters,
-                    title: e.target.value,
-                  });
-                }}
-                value={filters.title}
-              />
-            </div>
-            <div className="mr-2">
-              <Input
-                placeholder="Search by author"
-                type="text"
-                onChange={(e) => {
-                  setFilters({
-                    ...filters,
-                    author: e.target.value,
-                  });
-                }}
-                value={filters.author}
-              />
-            </div>
-            <div className="mr-2 pt-1">
-              <Button onClick={() => handleFilters()} text={'Search'} />
-            </div>
-          </div>
           {books && books.length > 0 ? (
             <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-4">
               {books?.map((book, index) => (

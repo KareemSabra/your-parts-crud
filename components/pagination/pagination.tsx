@@ -18,27 +18,31 @@ const Pagination: React.FC<PaginationProps> = ({
   const totalPages = Math.ceil(count / 8);
 
   return (
-    <div className="flex justify-center mt-4 mb-2">
-      <div className="mx-2">
-        <Button
-          onClick={() => handlePrev()}
-          text={'Prev'}
-          disabled={limit < 2}
-        />
+    totalPages > 1 && (
+      <div className=" flex flex-grow justify-center align-bottom">
+        <div className="flex justify-center mt-4 mb-2 items-end	">
+          <div className="mx-2">
+            <Button
+              onClick={() => handlePrev()}
+              text={'Prev'}
+              disabled={limit < 2}
+            />
+          </div>
+          <div className="m-2 flex align-middle pt-2">
+            <Typography variant="p">
+              {limit} / {totalPages}
+            </Typography>
+          </div>
+          <div className="mx-2">
+            <Button
+              onClick={() => handleNext()}
+              text={'Next'}
+              disabled={limit >= totalPages}
+            />
+          </div>
+        </div>
       </div>
-      <div className="mx-2 flex align-middle pt-2">
-        <Typography variant="p">
-          {limit} / {totalPages}
-        </Typography>
-      </div>
-      <div className="mx-2">
-        <Button
-          onClick={() => handleNext()}
-          text={'Next'}
-          disabled={limit >= totalPages}
-        />
-      </div>
-    </div>
+    )
   );
 };
 export default Pagination;

@@ -9,6 +9,7 @@ interface InputProps {
   name?: string;
   placeholder?: string;
   testID?: string;
+  disabled?: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
@@ -21,6 +22,7 @@ const Input: React.FC<InputProps> = ({
   type,
   placeholder,
   testID,
+  disabled,
   onBlur,
   onChange,
 }) => {
@@ -44,6 +46,7 @@ const Input: React.FC<InputProps> = ({
         onChange={onChange}
         name={name}
         onBlur={onBlur}
+        disabled={disabled}
       />
       {error && <div className="px-1 text-red-500 text-sm">{error}</div>}
     </div>
